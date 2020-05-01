@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30021.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owoify.Net", "Owoify.Net.csproj", "{3B6F5197-7F39-431F-AFD9-9B283C6B404E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {858D2473-FD09-41EA-8E54-5029805811A7}
+	EndGlobalSection
+EndGlobal
