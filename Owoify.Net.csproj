@@ -1,8 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;netcoreapp3.0;netstandard2.1</TargetFrameworks>
     <RootNamespace>Owoify</RootNamespace>
+    <Authors>Chehui Chou (Tetsuki Syu)</Authors>
+    <Product></Product>
+    <Description>This C# port of mohan-cao's owoify-js is released under MIT license, which is also the same license of owoify-js. This simple library will turn any string into nonsensical babyspeak similar to what LeafySweet's infamous Chrome extension did.</Description>
+    <Copyright>Copyright (c) 2020 Chehui Chou</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/deadshot465/Owoify.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/deadshot465/Owoify.Net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>C#, .NET, .NET Core, owoify, fun, funny, nonsensical, nonsense, curse, cursed, baby, babyspeak</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

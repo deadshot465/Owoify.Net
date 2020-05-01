@@ -1,0 +1,5 @@
+language: csharp
+solution: Owoify.Net.sln
+mono: none
+dotnet: 3.1.201
+ - dotnet restore

@@ -76,6 +76,7 @@ namespace Owoify
             }
             return this;
         }
+
         internal Word Replace(Regex searchValue, Func<string, string, string> func, bool replaceReplacedWords = false)
         {
             if (!searchValue.IsMatch(_word)) return this;
