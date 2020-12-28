@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <RootNamespace>Owoify</RootNamespace>
     <Authors>Chehui Chou (Tetsuki Syu)</Authors>
     <Product></Product>

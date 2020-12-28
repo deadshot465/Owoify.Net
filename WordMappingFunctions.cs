@@ -5,12 +5,11 @@ namespace Owoify
 {
     internal static partial class Utility
     {
-        private static readonly string[] _faces = new[]
+        private static readonly string[] Faces = 
         {
             "(・`ω´・)", ";;w;;", "owo", "UwU", ">w<", "^w^", "(* ^ ω ^)",
             "(⌒ω⌒)", "ヽ(*・ω・)ﾉ", "(o´∀`o)", "(o･ω･o)", "＼(＾▽＾)／"
         };
-
 
         internal static Word Map_O_To_OwO(Word input)
             => input.Replace(new Regex(@"o"),
@@ -41,11 +40,11 @@ namespace Owoify
         internal static Word Map_PeriodCommaExclamationSemicolon_To_Kaomojis(Word input)
         {
             var rng = new Random();
-            var index = (int)Math.Floor((decimal)(rng.NextDouble() * _faces.Length));
-            input = input.Replace(new Regex(@"[.,](?![0-9])"), () => " " + _faces[index]);
+            var index = (int)Math.Floor((decimal)(rng.NextDouble() * Faces.Length));
+            input = input.Replace(new Regex(@"[.,](?![0-9])"), () => " " + Faces[index]);
 
-            index = (int)Math.Floor((decimal)(rng.NextDouble() * _faces.Length));
-            input = input.Replace(new Regex(@"[!;]+"), () => " " + _faces[index]);
+            index = (int)Math.Floor((decimal)(rng.NextDouble() * Faces.Length));
+            input = input.Replace(new Regex(@"[!;]+"), () => " " + Faces[index]);
 
             return input;
         }
@@ -96,8 +95,7 @@ namespace Owoify
         {
             return input.Replace(new Regex(@"([bcdfghjkmnpqstxyz])o"), "$1wo")
                 .Replace(new Regex(@"([BCDFGHJKMNPQSTXYZ])([oO])"),
-                (string m1, string m2) =>
-                m1 + (m2.ToUpper() == m2 ? "W" : "w") + m2);
+                (m1, m2) => m1 + (m2.ToUpper() == m2 ? "W" : "w") + m2);
         }
 
         internal static Word Map_VOrW_Le_To_Wal(Word input)
@@ -129,7 +127,6 @@ namespace Owoify
         internal static Word Map_Nr_To_Nw(Word input)
             => input.Replace(new Regex(@"nr"), "nw")
             .Replace(new Regex(@"NR"), "NW");
-
 
         internal static Word Map_Fuc_To_Fwuc(Word input)
             => input.Replace(new Regex(@"([Ff])uc"), "$1wuc");
