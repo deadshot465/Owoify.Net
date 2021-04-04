@@ -1,171 +1,229 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+// ReSharper disable InconsistentNaming
 
 namespace Owoify
 {
     internal static partial class Utility
     {
-        private static readonly string[] _faces = new[]
-        {
+        private static readonly string[] Faces = {
             "(・`ω´・)", ";;w;;", "owo", "UwU", ">w<", "^w^", "(* ^ ω ^)",
-            "(⌒ω⌒)", "ヽ(*・ω・)ﾉ", "(o´∀`o)", "(o･ω･o)", "＼(＾▽＾)／"
+            "(⌒ω⌒)", "ヽ(*・ω・)ﾉ", "(o´∀`o)", "(o･ω･o)", "＼(＾▽＾)／",
+            "(*^ω^)", "(◕‿◕✿)", "(◕ᴥ◕)", "ʕ•ᴥ•ʔ", "ʕ￫ᴥ￩ʔ", "(*^.^*)",
+            "(｡♥‿♥｡)", "OwO", "uwu", "uvu", "UvU", "(*￣з￣)", "(つ✧ω✧)つ",
+            "(/ =ω=)/", "(╯°□°）╯︵ ┻━┻", "┬─┬ ノ( ゜-゜ノ)", "¯\\_(ツ)_/¯",
         };
 
+        private static readonly Regex OToOwO = new Regex(@"o");
+        private static readonly Regex EwToUwU = new Regex(@"ew");
+        private static readonly Regex HeyToHay = new Regex(@"([Hh])ey");
+        private static readonly Regex DeadToDedUpper = new Regex(@"Dead");
+        private static readonly Regex DeadToDedLower = new Regex(@"dead");
+        private static readonly Regex NVowelTToNd = new Regex(@"n[aeiou]*t");
+        private static readonly Regex ReadToWeadUpper = new Regex(@"Read");
+        private static readonly Regex ReadToWeadLower = new Regex(@"read");
+        private static readonly Regex BracketsToStarTrailsFore = new Regex(@"[({<]");
+        private static readonly Regex BracketsToStarTrailsRear = new Regex(@"[)}>]");
+        private static readonly Regex PeriodCommaExclamationSemicolonToKaomojisFirst = new Regex(@"[.,](?![0-9])");
+        private static readonly Regex PeriodCommaExclamationSemicolonToKaomojisSecond = new Regex(@"[!;]+");
+        private static readonly Regex ThatToDatLower = new Regex(@"that");
+        private static readonly Regex ThatToDatUpper = new Regex(@"That");
+        private static readonly Regex ThToFLower = new Regex(@"[Tt]h(?![Ee])");
+        private static readonly Regex ThToFUpper = new Regex(@"TH(?!E)");
+        private static readonly Regex LeToWal = new Regex(@"le$");
+        private static readonly Regex VeToWeLower = new Regex(@"ve");
+        private static readonly Regex VeToWeUpper = new Regex(@"Ve");
+        private static readonly Regex RyToWwy = new Regex(@"ry");
+        private static readonly Regex ROrLToWLower = new Regex(@"(?:r|l)");
+        private static readonly Regex ROrLToWUpper = new Regex(@"(?:R|L)");
+        private static readonly Regex LlToWw = new Regex(@"ll");
+        private static readonly Regex VowelOrRExceptOLToWlLower = new Regex(@"[aeiur]l$");
+        private static readonly Regex VowelOrRExceptOLToWlUpper = new Regex(@"[AEIUR]([lL])$");
+        private static readonly Regex OldToOwldLower = new Regex(@"([Oo])ld");
+        private static readonly Regex OldToOwldUpper = new Regex(@"OLD");
+        private static readonly Regex OlToOwlLower = new Regex(@"([Oo])l");
+        private static readonly Regex OlToOwlUpper = new Regex(@"OL");
+        private static readonly Regex LOrROToWoLower = new Regex(@"[lr]o");
+        private static readonly Regex LOrROToWoUpper = new Regex(@"[LR]([oO])");
+        private static readonly Regex SpecificConsonantsOToLetterAndWoLower = new Regex(@"([bcdfghjkmnpqstxyz])o");
+        private static readonly Regex SpecificConsonantsOToLetterAndWoUpper = new Regex(@"([BCDFGHJKMNPQSTXYZ])([oO])");
+        private static readonly Regex VOrWLeToWal = new Regex(@"[vw]le");
+        private static readonly Regex FiToFwiLower = new Regex(@"([Ff])i");
+        private static readonly Regex FiToFwiUpper = new Regex(@"FI");
+        private static readonly Regex VerToWer = new Regex(@"([Vv])er");
+        private static readonly Regex PoiToPwoi = new Regex(@"([Pp])oi");
+        private static readonly Regex SpecificConsonantsLeToLetterAndWal = new Regex(@"([DdFfGgHhJjPpQqRrSsTtXxYyZz])le$");
+        private static readonly Regex ConsonantRToConsonantW = new Regex(@"([BbCcDdFfGgKkPpQqSsTtWwXxZz])r");
+        private static readonly Regex LyToWyLower = new Regex(@"ly");
+        private static readonly Regex LyToWyUpper = new Regex(@"Ly");
+        private static readonly Regex PleToPwe = new Regex(@"([Pp])le");
+        private static readonly Regex NrToNwLower = new Regex(@"nr");
+        private static readonly Regex NrToNwUpper = new Regex(@"NR");
+        private static readonly Regex FucToFwuc = new Regex(@"([Ff])uc");
+        private static readonly Regex MomToMwom = new Regex(@"([Mm])om");
+        private static readonly Regex MeToMwe = new Regex(@"([Mm])e");
+        private static readonly Regex NVowelToNyFirst = new Regex(@"n([aeiou])");
+        private static readonly Regex NVowelToNySecond = new Regex(@"N([aeiou])");
+        private static readonly Regex NVowelToNyThird = new Regex(@"N([AEIOU])");
+        private static readonly Regex OveToUvLower = new Regex(@"ove");
+        private static readonly Regex OveToUvUpper = new Regex(@"OVE");
+        private static readonly Regex HahaToHehexD = new Regex(@"\b(ha|hah|heh|hehe)+\b");
+        private static readonly Regex TheToTeh = new Regex(@"\b([Tt])he\b");
+        private static readonly Regex YouToUUpper = new Regex(@"\bYou\b");
+        private static readonly Regex YouToULower = new Regex(@"\byou\b");
+        private static readonly Regex TimeToTim = new Regex(@"\b([Tt])ime\b");
+        private static readonly Regex OverToOwor = new Regex(@"([Oo])ver");
+        private static readonly Regex WorseToWose = new Regex(@"([Ww])orse");
 
-        internal static Word Map_O_To_OwO(Word input)
-            => input.Replace(new Regex(@"o"),
-                Math.Round((decimal)new Random().NextDouble()) > 0 ? "owo" : "o");
+        private static Word MapOToOwO(Word input)
+            => input.Replace(OToOwO, 
+                new Random().Next(0, 2) > 0 ? "owo" : "o");
 
-        internal static Word Map_Ew_To_UwU(Word input)
-            => input.Replace(new Regex(@"ew"), "uwu");
+        private static Word MapEwToUwU(Word input)
+            => input.Replace(EwToUwU, "uwu");
 
-        internal static Word Map_Hey_To_Hay(Word input)
-            => input.Replace(new Regex(@"([Hh])ey"), "$1ay");
+        private static Word MapHeyToHay(Word input)
+            => input.Replace(HeyToHay, "$1ay");
 
-        internal static Word Map_Dead_To_Ded(Word input)
-            => input.Replace(new Regex(@"Dead"), "Ded")
-                .Replace(new Regex(@"dead"), "ded");
+        private static Word MapDeadToDed(Word input)
+            => input.Replace(DeadToDedUpper, "Ded")
+                .Replace(DeadToDedLower, "ded");
 
-        internal static Word Map_N_Vowel_T_To_Nd(Word input)
-            => input.Replace(new Regex(@"n[aeiou]*t"), "nd");
+        private static Word MapNVowelTToNd(Word input)
+            => input.Replace(NVowelTToNd, "nd");
 
-        internal static Word Map_Read_To_Wead(Word input)
-            => input.Replace(new Regex(@"Read"), "Wead")
-            .Replace(new Regex(@"read"), "wead");
+        private static Word MapReadToWead(Word input)
+            => input.Replace(ReadToWeadUpper, "Wead")
+            .Replace(ReadToWeadLower, "wead");
 
 
-        internal static Word Map_Brackets_To_StarTrails(Word input)
-            => input.Replace(new Regex(@"[({<]"), "｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-            .Replace(new Regex(@"[)}>]"), "☆ﾟ･:*:･｡,★ﾟ･:*:･｡");
+        private static Word MapBracketsToStarTrails(Word input)
+            => input.Replace(BracketsToStarTrailsFore, "｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+            .Replace(BracketsToStarTrailsRear, "☆ﾟ･:*:･｡,★ﾟ･:*:･｡");
 
-        internal static Word Map_PeriodCommaExclamationSemicolon_To_Kaomojis(Word input)
+        private static Word MapPeriodCommaExclamationSemicolonToKaomojis(Word input)
         {
             var rng = new Random();
-            var index = (int)Math.Floor((decimal)(rng.NextDouble() * _faces.Length));
-            input = input.Replace(new Regex(@"[.,](?![0-9])"), () => " " + _faces[index]);
-
-            index = (int)Math.Floor((decimal)(rng.NextDouble() * _faces.Length));
-            input = input.Replace(new Regex(@"[!;]+"), () => " " + _faces[index]);
-
-            return input;
+            return input.Replace(PeriodCommaExclamationSemicolonToKaomojisFirst, () => " " + Faces[rng.Next(0, Faces.Length)])
+                .Replace(PeriodCommaExclamationSemicolonToKaomojisSecond, () => " " + Faces[rng.Next(0, Faces.Length)]);
         }
 
-        internal static Word Map_That_To_Dat(Word input)
-            => input.Replace(new Regex(@"that"), "dat")
-            .Replace(new Regex(@"That"), "Dat");
+        private static Word MapThatToDat(Word input)
+            => input.Replace(ThatToDatLower, "dat")
+            .Replace(ThatToDatUpper, "Dat");
 
-        internal static Word Map_Th_To_F(Word input)
-            => input.Replace(new Regex(@"[Tt]h(?![Ee])"), "f")
-            .Replace(new Regex(@"TH(?!E)"), "F");
+        private static Word MapThToF(Word input)
+            => input.Replace(ThToFLower, "f")
+            .Replace(ThToFUpper, "F");
 
-        internal static Word Map_Le_To_Wal(Word input)
-            => input.Replace(new Regex(@"le$"), "wal");
+        private static Word MapLeToWal(Word input)
+            => input.Replace(LeToWal, "wal");
 
-        internal static Word Map_Ve_To_We(Word input)
-            => input.Replace(new Regex(@"ve"), "we")
-            .Replace(new Regex(@"Ve"), "We");
+        private static Word MapVeToWe(Word input)
+            => input.Replace(VeToWeLower, "we")
+            .Replace(VeToWeUpper, "We");
 
-        internal static Word Map_Ry_To_Wwy(Word input)
-            => input.Replace(new Regex(@"ry"), "wwy");
+        private static Word MapRyToWwy(Word input)
+            => input.Replace(RyToWwy, "wwy");
 
-        internal static Word Map_ROrL_To_W(Word input)
-            => input.Replace(new Regex(@"(?:r|l)"), "w")
-            .Replace(new Regex(@"(?:R|L)"), "W");
+        private static Word MapROrLToW(Word input)
+            => input.Replace(ROrLToWLower, "w")
+            .Replace(ROrLToWUpper, "W");
 
 
-        internal static Word Map_Ll_To_Ww(Word input)
-            => input.Replace(new Regex(@"ll"), "ww");
+        private static Word MapLlToWw(Word input)
+            => input.Replace(LlToWw, "ww");
 
-        internal static Word Map_VowelOrRExceptO_L_To_Wl(Word input)
-            => input.Replace(new Regex(@"[aeiur]l$"), "wl")
-            .Replace(new Regex(@"[AEIUR]([lL])$"), "W$1");
+        private static Word MapVowelOrRExceptOLToWl(Word input)
+            => input.Replace(VowelOrRExceptOLToWlLower, "wl")
+            .Replace(VowelOrRExceptOLToWlUpper, "W$1");
 
-        internal static Word Map_Old_To_Owld(Word input)
-            => input.Replace(new Regex(@"([Oo])ld"), "$1wld")
-            .Replace(new Regex(@"OLD"), "OWLD");
+        private static Word MapOldToOwld(Word input)
+            => input.Replace(OldToOwldLower, "$1wld")
+            .Replace(OldToOwldUpper, "OWLD");
 
-        internal static Word Map_Ol_To_Owl(Word input)
-            => input.Replace(new Regex(@"([Oo])l"), "$1wl")
-            .Replace(new Regex(@"OL"), "OWL");
+        private static Word MapOlToOwl(Word input)
+            => input.Replace(OlToOwlLower, "$1wl")
+            .Replace(OlToOwlUpper, "OWL");
 
-        internal static Word Map_LOrR_O_To_Wo(Word input)
-            => input.Replace(new Regex(@"[lr]o"), "wo")
-            .Replace(new Regex(@"[LR]([oO])"), "W$1");
+        private static Word MapLOrROToWo(Word input)
+            => input.Replace(LOrROToWoLower, "wo")
+            .Replace(LOrROToWoUpper, "W$1");
 
-        internal static Word Map_SpecificConsonants_O_To_Letter_And_Wo(Word input)
+        private static Word MapSpecificConsonantsOToLetterAndWo(Word input)
         {
-            return input.Replace(new Regex(@"([bcdfghjkmnpqstxyz])o"), "$1wo")
-                .Replace(new Regex(@"([BCDFGHJKMNPQSTXYZ])([oO])"),
-                (string m1, string m2) =>
+            return input.Replace(SpecificConsonantsOToLetterAndWoLower, "$1wo")
+                .Replace(SpecificConsonantsOToLetterAndWoUpper,
+                (m1, m2) =>
                 m1 + (m2.ToUpper() == m2 ? "W" : "w") + m2);
         }
 
-        internal static Word Map_VOrW_Le_To_Wal(Word input)
-            => input.Replace(new Regex(@"[vw]le"), "wal");
+        private static Word MapVOrWLeToWal(Word input)
+            => input.Replace(VOrWLeToWal, "wal");
 
-        internal static Word Map_Fi_To_Fwi(Word input)
-            => input.Replace(new Regex(@"([Ff])i"), "$1wi")
-            .Replace(new Regex(@"FI"), "FWI");
+        private static Word MapFiToFwi(Word input)
+            => input.Replace(FiToFwiLower, "$1wi")
+            .Replace(FiToFwiUpper, "FWI");
 
-        internal static Word Map_Ver_To_Wer(Word input)
-            => input.Replace(new Regex(@"([Vv])er"), "wer");
+        private static Word MapVerToWer(Word input)
+            => input.Replace(VerToWer, "wer");
 
-        internal static Word Map_Poi_To_Pwoi(Word input)
-            => input.Replace(new Regex(@"([Pp])oi"), "$1woi");
+        private static Word MapPoiToPwoi(Word input)
+            => input.Replace(PoiToPwoi, "$1woi");
 
-        internal static Word Map_SpecificConsonants_Le_To_Letter_And_Wal(Word input)
-            => input.Replace(new Regex(@"([DdFfGgHhJjPpQqRrSsTtXxYyZz])le$"), "$1wal");
+        private static Word MapSpecificConsonantsLeToLetterAndWal(Word input)
+            => input.Replace(SpecificConsonantsLeToLetterAndWal, "$1wal");
 
-        internal static Word Map_Consonant_R_To_Consonant_W(Word input)
-            => input.Replace(new Regex(@"([BbCcDdFfGgKkPpQqSsTtWwXxZz])r"), "$1w");
+        private static Word MapConsonantRToConsonantW(Word input)
+            => input.Replace(ConsonantRToConsonantW, "$1w");
 
-        internal static Word Map_Ly_To_Wy(Word input)
-            => input.Replace(new Regex(@"ly"), "wy")
-            .Replace(new Regex(@"Ly"), "Wy");
+        private static Word MapLyToWy(Word input)
+            => input.Replace(LyToWyLower, "wy")
+            .Replace(LyToWyUpper, "Wy");
 
-        internal static Word Map_Ple_To_Pwe(Word input)
-            => input.Replace(new Regex(@"([Pp])le"), "1we");
+        private static Word MapPleToPwe(Word input)
+            => input.Replace(PleToPwe, "1we");
 
-        internal static Word Map_Nr_To_Nw(Word input)
-            => input.Replace(new Regex(@"nr"), "nw")
-            .Replace(new Regex(@"NR"), "NW");
+        private static Word MapNrToNw(Word input)
+            => input.Replace(NrToNwLower, "nw")
+            .Replace(NrToNwUpper, "NW");
 
 
-        internal static Word Map_Fuc_To_Fwuc(Word input)
-            => input.Replace(new Regex(@"([Ff])uc"), "$1wuc");
+        private static Word MapFucToFwuc(Word input)
+            => input.Replace(FucToFwuc, "$1wuc");
 
-        internal static Word Map_Mom_To_Mwom(Word input)
-            => input.Replace(new Regex(@"([Mm])om"), "$1wom");
+        private static Word MapMomToMwom(Word input)
+            => input.Replace(MomToMwom, "$1wom");
 
-        internal static Word Map_Me_To_Mwe(Word input)
-            => input.Replace(new Regex(@"([Mm])e"), "$1we");
+        private static Word MapMeToMwe(Word input)
+            => input.Replace(MeToMwe, "$1we");
 
-        internal static Word Map_NVowel_To_Ny(Word input)
-            => input.Replace(new Regex(@"n([aeiou])"), "ny$1")
-            .Replace(new Regex(@"N([aeiou])"), "Ny$1")
-            .Replace(new Regex(@"N([AEIOU])"), "NY$1");
+        private static Word MapNVowelToNy(Word input)
+            => input.Replace(NVowelToNyFirst, "ny$1")
+            .Replace(NVowelToNySecond, "Ny$1")
+            .Replace(NVowelToNyThird, "NY$1");
 
-        internal static Word Map_Ove_To_Uv(Word input)
-            => input.Replace(new Regex(@"ove"), "uv")
-            .Replace(new Regex(@"OVE"), "UV");
+        private static Word MapOveToUv(Word input)
+            => input.Replace(OveToUvLower, "uv")
+            .Replace(OveToUvUpper, "UV");
 
-        internal static Word Map_Haha_To_HehexD(Word input)
-            => input.Replace(new Regex(@"\b(ha|hah|heh|hehe)+\b"), "hehe xD");
+        private static Word MapHahaToHehexD(Word input)
+            => input.Replace(HahaToHehexD, "hehe xD");
 
-        internal static Word Map_The_To_Teh(Word input)
-            => input.Replace(new Regex(@"\b([Tt])he\b"), "$1eh");
+        private static Word MapTheToTeh(Word input)
+            => input.Replace(TheToTeh, "$1eh");
 
-        internal static Word Map_You_To_U(Word input)
-            => input.Replace(new Regex(@"\bYou\b"), "U")
-            .Replace(new Regex(@"\byou\b"), "u");
+        private static Word MapYouToU(Word input)
+            => input.Replace(YouToUUpper, "U")
+            .Replace(YouToULower, "u");
 
-        internal static Word Map_Time_To_Tim(Word input)
-            => input.Replace(new Regex(@"\b([Tt])ime\b"), "$1im");
+        private static Word MapTimeToTim(Word input)
+            => input.Replace(TimeToTim, "$1im");
 
-        internal static Word Map_Over_To_Owor(Word input)
-            => input.Replace(new Regex(@"([Oo])ver"), "$1wor");
+        private static Word MapOverToOwor(Word input)
+            => input.Replace(OverToOwor, "$1wor");
 
-        internal static Word Map_Worse_To_Wose(Word input)
-            => input.Replace(new Regex(@"([Ww])orse"), "$1ose");
+        private static Word MapWorseToWose(Word input)
+            => input.Replace(WorseToWose, "$1ose");
     }
 }

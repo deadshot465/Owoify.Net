@@ -3,3 +3,8 @@ bin/
 obj/
 LICENSE.txt
 nuget.config
+.DS_Store
+**/*/.DS_Store
+.idea/
+Owoify.Net.sln.DotSettings.user
+Owoify.NetTest/

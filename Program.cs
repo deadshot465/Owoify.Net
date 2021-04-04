@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+// ReSharper disable InconsistentNaming
 
 namespace Owoify
 {
@@ -26,39 +27,28 @@ namespace Owoify
 
             words = words.Select(word =>
             {
-                foreach (var func in Utility.SpecificWordMappingList)
-                {
-                    word = func.Invoke(word);
-                }
+                word = Utility.SpecificWordMappingList.Aggregate(word, (current, func) => func.Invoke(current));
 
                 switch (level)
                 {
                     case OwoifyLevel.Owo:
-                        foreach (var func in Utility.OwoMappingList)
-                            word = func.Invoke(word);
+                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
                         break;
                     case OwoifyLevel.Uwu:
-                        foreach (var func in Utility.UwuMappingList)
-                            word = func.Invoke(word);
-                        foreach (var func in Utility.OwoMappingList)
-                            word = func.Invoke(word);
+                        word = Utility.UwuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
                         break;
                     case OwoifyLevel.Uvu:
-                        foreach (var func in Utility.UvuMappingList)
-                            word = func.Invoke(word);
-                        foreach (var func in Utility.UwuMappingList)
-                            word = func.Invoke(word);
-                        foreach (var func in Utility.OwoMappingList)
-                            word = func.Invoke(word);
-                        break;
-                    default:
+                        word = Utility.UvuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        word = Utility.UwuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
                         break;
                 }
 
                 return word;
             });
 
-            var result = Utility.InterleaveArrays(words.ToList(), spaces.ToList());
+            var result = Utility.InterleaveArrays(words, spaces);
             return string.Join(string.Empty, result);
         }
     }

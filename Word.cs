@@ -8,7 +8,7 @@ namespace Owoify
     internal class Word
     {
         private string _word;
-        private HashSet<string> _replacedWords = new HashSet<string>();
+        private readonly HashSet<string> _replacedWords = new HashSet<string>();
 
         public override string ToString()
             => _word;
