@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30021.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owoify.Net", "Owoify.Net.csproj", "{3B6F5197-7F39-431F-AFD9-9B283C6B404E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owoify.NetTest", "Owoify.NetTest\Owoify.NetTest.csproj", "{C582DD03-ECE2-44AA-88B9-B85D0FC3E84A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B6F5197-7F39-431F-AFD9-9B283C6B404E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C582DD03-ECE2-44AA-88B9-B85D0FC3E84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C582DD03-ECE2-44AA-88B9-B85D0FC3E84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C582DD03-ECE2-44AA-88B9-B85D0FC3E84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C582DD03-ECE2-44AA-88B9-B85D0FC3E84A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
