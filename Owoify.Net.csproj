@@ -17,19 +17,24 @@
     <PackageVersion>1.1.0</PackageVersion>
     <Title>Owoify.Net</Title>
     <PackageReleaseNotes>v1.1.0 - Refactored and made all mapping regular expressions static readonly fields.</PackageReleaseNotes>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Owoify.NetTest\**" />
+    <None Remove="OwoifyNetTest\**" />
     <None Include="LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Owoify.NetTest\**" />
+    <Compile Remove="OwoifyNetTest\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="Owoify.NetTest\**" />
+    <EmbeddedResource Remove="OwoifyNetTest\**" />
   </ItemGroup>
 
 </Project>
