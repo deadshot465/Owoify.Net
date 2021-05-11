@@ -1,9 +1,9 @@
 # Owoify.Net
 Turning your worst nightmare into a NuGet package.
 
-[![Build Status](https://travis-ci.org/deadshot465/Owoify.Net.svg?branch=master)](https://travis-ci.org/deadshot465/Owoify.Net)
+[![Build Status](https://www.travis-ci.com/deadshot465/Owoify.Net.svg?branch=master)](https://www.travis-ci.com/github/deadshot465/Owoify.Net)
 
-- [NuGet package](https://www.nuget.org/packages/Owoify.Net/1.1.0)
+- [NuGet package](https://www.nuget.org/packages/Owoify.Net/)
 
 This is a C# port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension. Just like owoify-js, three levels are available for owoifying your texts:
 
