@@ -16,4 +16,13 @@
     <ProjectReference Include="..\Owoify.Net.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="assets\pokemons.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="assets\war_and_peace_chapter01-20.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
