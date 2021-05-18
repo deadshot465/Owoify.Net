@@ -3,4 +3,7 @@ solution: Owoify.Net.sln
 mono: none
 dotnet: 5.0.202
 script:
- - dotnet build -c Release
+- dotnet build -c Release
+notifications:
+  slack:
+    secure: lh3hidkJik8MS8bpoKjC+9dLFuxWm5RjQ2YKLixqSNymOe1BqevYjWcoWv0Jj01DT56MFVf2WmgWdmgG3zGlR2WcsFX23yJFb2rBkspSB+3gZ7tlqTj2o3n11gsMpthRimnOqKzrk96e2wn0ei/76Xh/gu59OCpVCIxz9NDibo8rGOobB42mDlVk/WVZ30lCtnYWIsykAgLri5MNRfX61MhlxG5+Gc+aFNx38mGrP6XKjNG/SfIeECKML958J2giXST1GIOoC0X6u28EetyEXJI67NTas+SlxuP2bT0BNNlcJYKhHcfyk72QucdGEBeUT1mF9+EMbZOr6N8QaEvFQuCrXoOmzHPad3e4KJFwFClMDI52dQxhqR+dIuVWqKqjB+//ZLjXs67/crYuuBTy90RNM+3qJdck9YRh7BoPUy0wruPiwJ/El+lQNQJ7YEk/TWjsD/+LYzvrWBsEWVq/HMapCROnJiBwyVr3kPWHzblDT/D0D26wiwsjQP3JHDr6fOWEGeaqGrC2XwkQP5Iy5KVg2hHdDnI75rg6dhEHZGUOUKUx3D2LMizKvVb8brwQAkHdQxImSxw93qzn93GREksLL2P8sGVmGEmDD/6a2WRoVqTV4Vo86H6YYh5CayqVBiLMo2F0xoBYsQDG4NxX4q1K+ev3jAXct+UT+RjwqDM=
