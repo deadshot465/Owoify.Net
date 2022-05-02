@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-// ReSharper disable InconsistentNaming
 
 namespace Owoify
 {
@@ -37,14 +36,14 @@ namespace Owoify
         private static readonly Regex ROrLToWLower = new Regex(@"(?:r|l)");
         private static readonly Regex ROrLToWUpper = new Regex(@"(?:R|L)");
         private static readonly Regex LlToWw = new Regex(@"ll");
-        private static readonly Regex VowelOrRExceptOLToWlLower = new Regex(@"[aeiur]l$");
-        private static readonly Regex VowelOrRExceptOLToWlUpper = new Regex(@"[AEIUR]([lL])$");
+        private static readonly Regex VowelOrRExceptOlToWlLower = new Regex(@"[aeiur]l$");
+        private static readonly Regex VowelOrRExceptOlToWlUpper = new Regex(@"[AEIUR]([lL])$");
         private static readonly Regex OldToOwldLower = new Regex(@"([Oo])ld");
         private static readonly Regex OldToOwldUpper = new Regex(@"OLD");
         private static readonly Regex OlToOwlLower = new Regex(@"([Oo])l");
         private static readonly Regex OlToOwlUpper = new Regex(@"OL");
-        private static readonly Regex LOrROToWoLower = new Regex(@"[lr]o");
-        private static readonly Regex LOrROToWoUpper = new Regex(@"[LR]([oO])");
+        private static readonly Regex LOrRoToWoLower = new Regex(@"[lr]o");
+        private static readonly Regex LOrRoToWoUpper = new Regex(@"[LR]([oO])");
         private static readonly Regex SpecificConsonantsOToLetterAndWoLower = new Regex(@"([bcdfghjkmnpqstxyz])o");
         private static readonly Regex SpecificConsonantsOToLetterAndWoUpper = new Regex(@"([BCDFGHJKMNPQSTXYZ])([oO])");
         private static readonly Regex VOrWLeToWal = new Regex(@"[vw]le");
@@ -134,9 +133,9 @@ namespace Owoify
         private static Word MapLlToWw(Word input)
             => input.Replace(LlToWw, "ww");
 
-        private static Word MapVowelOrRExceptOLToWl(Word input)
-            => input.Replace(VowelOrRExceptOLToWlLower, "wl")
-            .Replace(VowelOrRExceptOLToWlUpper, "W$1");
+        private static Word MapVowelOrRExceptOlToWl(Word input)
+            => input.Replace(VowelOrRExceptOlToWlLower, "wl")
+            .Replace(VowelOrRExceptOlToWlUpper, "W$1");
 
         private static Word MapOldToOwld(Word input)
             => input.Replace(OldToOwldLower, "$1wld")
@@ -146,9 +145,9 @@ namespace Owoify
             => input.Replace(OlToOwlLower, "$1wl")
             .Replace(OlToOwlUpper, "OWL");
 
-        private static Word MapLOrROToWo(Word input)
-            => input.Replace(LOrROToWoLower, "wo")
-            .Replace(LOrROToWoUpper, "W$1");
+        private static Word MapLOrRoToWo(Word input)
+            => input.Replace(LOrRoToWoLower, "wo")
+            .Replace(LOrRoToWoUpper, "W$1");
 
         private static Word MapSpecificConsonantsOToLetterAndWo(Word input)
         {

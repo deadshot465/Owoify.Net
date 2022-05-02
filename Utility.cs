@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-// ReSharper disable InconsistentNaming
 
 namespace Owoify
 {
@@ -16,9 +15,7 @@ namespace Owoify
             {
                 arr.Add(observed[0]);
                 observed.RemoveAt(0);
-                var temp = observed;
-                observed = other;
-                other = temp;
+                (observed, other) = (other, observed);
             }
 
             if (other.Count > 0)

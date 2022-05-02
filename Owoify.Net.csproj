@@ -4,21 +4,22 @@
     <RootNamespace>Owoify</RootNamespace>
     <Authors>Chehui Chou (Tetsuki Syu)</Authors>
     <Description>This C# port of mohan-cao's owoify-js is released under MIT license, which is also the same license of owoify-js. This simple library will turn any string into nonsensical babyspeak similar to what LeafySweet's infamous Chrome extension did.</Description>
-    <Copyright>Copyright (c) 2021 Chehui Chou</Copyright>
+    <Copyright>Copyright (c) 2022 Chehui Chou</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/deadshot465/Owoify.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/deadshot465/Owoify.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>C#, .NET, .NET Core, owoify, fun, funny, nonsensical, nonsense, curse, cursed, baby, babyspeak</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.2.0</PackageVersion>
     <Title>Owoify.Net</Title>
-    <PackageReleaseNotes>v1.1.0 - Refactored and made all mapping regular expressions static readonly fields.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.2.0 - Throw an exception when the passed owoness level is invalid. Improve documentation.</PackageReleaseNotes>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

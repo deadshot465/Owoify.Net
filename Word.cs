@@ -34,14 +34,13 @@ namespace Owoify
                 .Select(x => x.Value.Replace(x.Value, replaceValue))
                 .ToList() : new List<string>();
 
-            if (replacingWord != _word)
+            if (replacingWord == _word) return this;
+            
+            foreach (var word in replacedWords)
             {
-                foreach (var word in replacedWords)
-                {
-                    _replacedWords.Add(word);
-                }
-                _word = replacingWord;
+                _replacedWords.Add(word);
             }
+            _word = replacingWord;
             return this;
         }
 
@@ -87,9 +86,8 @@ namespace Owoify
             if (!replaceReplacedWords &&
                 SearchValueContainsReplacedWords(searchValue, replaceValue, _replacedWords))
                 return this;
-
-            var replacingWord = _word;
-            replacingWord = _word.Replace(match.Value, replaceValue).Trim();
+            
+            var replacingWord = _word.Replace(match.Value, replaceValue).Trim();
 
             var matchCollection = searchValue.Matches(_word);
             var replacedWords = (matchCollection.Count > 0) ?
@@ -97,28 +95,25 @@ namespace Owoify
                 .Select(x => x.Value.Replace(x.Value, replaceValue))
                 .ToList() : new List<string>();
 
-            if (replacingWord != _word)
+            if (replacingWord == _word) return this;
+            
+            foreach (var word in replacedWords)
             {
-                foreach (var word in replacedWords)
-                {
-                    _replacedWords.Add(word);
-                }
-                _word = replacingWord;
+                _replacedWords.Add(word);
             }
+            _word = replacingWord;
             return this;
         }
 
-        private bool SearchValueContainsReplacedWords(Regex searchValue, string replaceValue,
-            HashSet<string> replacedWords)
+        private static bool SearchValueContainsReplacedWords(Regex searchValue, string replaceValue,
+            IEnumerable<string> replacedWords)
         {
             return replacedWords.Any(word =>
             {
-                if (searchValue.IsMatch(word))
-                {
-                    var match = searchValue.Match(word).Groups[0];
-                    return word.Replace(match.Value, replaceValue) == word;
-                }
-                return false;
+                if (!searchValue.IsMatch(word)) return false;
+                
+                var match = searchValue.Match(word).Groups[0];
+                return word.Replace(match.Value, replaceValue) == word;
             });
         }
     }
