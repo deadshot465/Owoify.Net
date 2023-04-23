@@ -13,6 +13,188 @@ namespace Owoify
             "(/ =ω=)/", "(╯°□°）╯︵ ┻━┻", "┬─┬ ノ( ゜-゜ノ)", "¯\\_(ツ)_/¯",
         };
 
+#if NET7_0_OR_GREATER
+        [GeneratedRegex(@"o")]
+        private static partial Regex OToOwOM();
+        private static readonly Regex OToOwO = OToOwOM();
+        [GeneratedRegex(@"ew")]
+        private static partial Regex EwToUwUM();
+        private static readonly Regex EwToUwU = EwToUwUM();
+        [GeneratedRegex(@"([Hh])ey")]
+        private static partial Regex HeyToHayM();
+        private static readonly Regex HeyToHay = HeyToHayM();
+        [GeneratedRegex(@"Dead")]
+        private static partial Regex DeadToDedUpperM();
+        private static readonly Regex DeadToDedUpper = DeadToDedUpperM();
+        [GeneratedRegex(@"dead")]
+        private static partial Regex DeadToDedLowerM();
+        private static readonly Regex DeadToDedLower = DeadToDedLowerM();
+        [GeneratedRegex(@"n[aeiou]*t")]
+        private static partial Regex NVowelTToNdM();
+        private static readonly Regex NVowelTToNd = NVowelTToNdM();
+        [GeneratedRegex(@"Read")]
+        private static partial Regex ReadToWeadUpperM();
+        private static readonly Regex ReadToWeadUpper = ReadToWeadUpperM();
+        [GeneratedRegex(@"read")]
+        private static partial Regex ReadToWeadLowerM();
+        private static readonly Regex ReadToWeadLower = ReadToWeadLowerM();
+        [GeneratedRegex(@"[({<]")]
+        private static partial Regex BracketsToStarTrailsForeM();
+        private static readonly Regex BracketsToStarTrailsFore = BracketsToStarTrailsForeM();
+        [GeneratedRegex(@"[)}>]")]
+        private static partial Regex BracketsToStarTrailsRearM();
+        private static readonly Regex BracketsToStarTrailsRear = BracketsToStarTrailsRearM();
+        [GeneratedRegex(@"[.,](?![0-9])")]
+        private static partial Regex PeriodCommaExclamationSemicolonToKaomojisFirstM();
+        private static readonly Regex PeriodCommaExclamationSemicolonToKaomojisFirst = PeriodCommaExclamationSemicolonToKaomojisFirstM();
+        [GeneratedRegex(@"[!;]+")]
+        private static partial Regex PeriodCommaExclamationSemicolonToKaomojisSecondM();
+        private static readonly Regex PeriodCommaExclamationSemicolonToKaomojisSecond = PeriodCommaExclamationSemicolonToKaomojisSecondM();
+        [GeneratedRegex(@"that")]
+        private static partial Regex ThatToDatLowerM();
+        private static readonly Regex ThatToDatLower = ThatToDatLowerM();
+        [GeneratedRegex(@"That")]
+        private static partial Regex ThatToDatUpperM();
+        private static readonly Regex ThatToDatUpper = ThatToDatUpperM();
+        [GeneratedRegex(@"[Tt]h(?![Ee])")]
+        private static partial Regex ThToFLowerM();
+        private static readonly Regex ThToFLower = ThToFLowerM();
+        [GeneratedRegex(@"TH(?!E)")]
+        private static partial Regex ThToFUpperM();
+        private static readonly Regex ThToFUpper = ThToFUpperM();
+        [GeneratedRegex(@"le$")]
+        private static partial Regex LeToWalM();
+        private static readonly Regex LeToWal = LeToWalM();
+        [GeneratedRegex(@"ve")]
+        private static partial Regex VeToWeLowerM();
+        private static readonly Regex VeToWeLower = VeToWeLowerM();
+        [GeneratedRegex(@"Ve")]
+        private static partial Regex VeToWeUpperM();
+        private static readonly Regex VeToWeUpper = VeToWeUpperM();
+        [GeneratedRegex(@"ry")]
+        private static partial Regex RyToWwyM();
+        private static readonly Regex RyToWwy = RyToWwyM();
+        [GeneratedRegex(@"(?:r|l)")]
+        private static partial Regex ROrLToWLowerM();
+        private static readonly Regex ROrLToWLower = ROrLToWLowerM();
+        [GeneratedRegex(@"(?:R|L)")]
+        private static partial Regex ROrLToWUpperM();
+        private static readonly Regex ROrLToWUpper = ROrLToWUpperM();
+        [GeneratedRegex(@"ll")]
+        private static partial Regex LlToWwM();
+        private static readonly Regex LlToWw = LlToWwM();
+        [GeneratedRegex(@"[aeiur]l$")]
+        private static partial Regex VowelOrRExceptOlToWlLowerM();
+        private static readonly Regex VowelOrRExceptOlToWlLower = VowelOrRExceptOlToWlLowerM();
+        [GeneratedRegex(@"[AEIUR]([lL])$")]
+        private static partial Regex VowelOrRExceptOlToWlUpperM();
+        private static readonly Regex VowelOrRExceptOlToWlUpper = VowelOrRExceptOlToWlUpperM();
+        [GeneratedRegex(@"([Oo])ld")]
+        private static partial Regex OldToOwldLowerM();
+        private static readonly Regex OldToOwldLower = OldToOwldLowerM();
+        [GeneratedRegex(@"OLD")]
+        private static partial Regex OldToOwldUpperM();
+        private static readonly Regex OldToOwldUpper = OldToOwldUpperM();
+        [GeneratedRegex(@"([Oo])l")]
+        private static partial Regex OlToOwlLowerM();
+        private static readonly Regex OlToOwlLower = OlToOwlLowerM();
+        [GeneratedRegex(@"OL")]
+        private static partial Regex OlToOwlUpperM();
+        private static readonly Regex OlToOwlUpper = OlToOwlUpperM();
+        [GeneratedRegex(@"[lr]o")]
+        private static partial Regex LOrRoToWoLowerM();
+        private static readonly Regex LOrRoToWoLower = LOrRoToWoLowerM();
+        [GeneratedRegex(@"[LR]([oO])")]
+        private static partial Regex LOrRoToWoUpperM();
+        private static readonly Regex LOrRoToWoUpper = LOrRoToWoUpperM();
+        [GeneratedRegex(@"([bcdfghjkmnpqstxyz])o")]
+        private static partial Regex SpecificConsonantsOToLetterAndWoLowerM();
+        private static readonly Regex SpecificConsonantsOToLetterAndWoLower = SpecificConsonantsOToLetterAndWoLowerM();
+        [GeneratedRegex(@"([BCDFGHJKMNPQSTXYZ])([oO])")]
+        private static partial Regex SpecificConsonantsOToLetterAndWoUpperM();
+        private static readonly Regex SpecificConsonantsOToLetterAndWoUpper = SpecificConsonantsOToLetterAndWoUpperM();
+        [GeneratedRegex(@"[vw]le")]
+        private static partial Regex VOrWLeToWalM();
+        private static readonly Regex VOrWLeToWal = VOrWLeToWalM();
+        [GeneratedRegex(@"([Ff])i")]
+        private static partial Regex FiToFwiLowerM();
+        private static readonly Regex FiToFwiLower = FiToFwiLowerM();
+        [GeneratedRegex(@"FI")]
+        private static partial Regex FiToFwiUpperM();
+        private static readonly Regex FiToFwiUpper = FiToFwiUpperM();
+        [GeneratedRegex(@"([Vv])er")]
+        private static partial Regex VerToWerM();
+        private static readonly Regex VerToWer = VerToWerM();
+        [GeneratedRegex(@"([Pp])oi")]
+        private static partial Regex PoiToPwoiM();
+        private static readonly Regex PoiToPwoi = PoiToPwoiM();
+        [GeneratedRegex(@"([DdFfGgHhJjPpQqRrSsTtXxYyZz])le$")]
+        private static partial Regex SpecificConsonantsLeToLetterAndWalM();
+        private static readonly Regex SpecificConsonantsLeToLetterAndWal = SpecificConsonantsLeToLetterAndWalM();
+        [GeneratedRegex(@"([BbCcDdFfGgKkPpQqSsTtWwXxZz])r")]
+        private static partial Regex ConsonantRToConsonantWM();
+        private static readonly Regex ConsonantRToConsonantW = ConsonantRToConsonantWM();
+        [GeneratedRegex(@"ly")]
+        private static partial Regex LyToWyLowerM();
+        private static readonly Regex LyToWyLower = LyToWyLowerM();
+        [GeneratedRegex(@"Ly")]
+        private static partial Regex LyToWyUpperM();
+        private static readonly Regex LyToWyUpper = LyToWyUpperM();
+        [GeneratedRegex(@"([Pp])le")]
+        private static partial Regex PleToPweM();
+        private static readonly Regex PleToPwe = PleToPweM();
+        [GeneratedRegex(@"nr")]
+        private static partial Regex NrToNwLowerM();
+        private static readonly Regex NrToNwLower = NrToNwLowerM();
+        [GeneratedRegex(@"NR")]
+        private static partial Regex NrToNwUpperM();
+        private static readonly Regex NrToNwUpper = NrToNwUpperM();
+        [GeneratedRegex(@"([Ff])uc")]
+        private static partial Regex FucToFwucM();
+        private static readonly Regex FucToFwuc = FucToFwucM();
+        [GeneratedRegex(@"([Mm])om")]
+        private static partial Regex MomToMwomM();
+        private static readonly Regex MomToMwom = MomToMwomM();
+        [GeneratedRegex(@"([Mm])e")]
+        private static partial Regex MeToMweM();
+        private static readonly Regex MeToMwe = MeToMweM();
+        [GeneratedRegex(@"n([aeiou])")]
+        private static partial Regex NVowelToNyFirstM();
+        private static readonly Regex NVowelToNyFirst = NVowelToNyFirstM();
+        [GeneratedRegex(@"N([aeiou])")]
+        private static partial Regex NVowelToNySecondM();
+        private static readonly Regex NVowelToNySecond = NVowelToNySecondM();
+        [GeneratedRegex(@"N([AEIOU])")]
+        private static partial Regex NVowelToNyThirdM();
+        private static readonly Regex NVowelToNyThird = NVowelToNyThirdM();
+        [GeneratedRegex(@"ove")]
+        private static partial Regex OveToUvLowerM();
+        private static readonly Regex OveToUvLower = OveToUvLowerM();
+        [GeneratedRegex(@"OVE")]
+        private static partial Regex OveToUvUpperM();
+        private static readonly Regex OveToUvUpper = OveToUvUpperM();
+        [GeneratedRegex(@"\b(ha|hah|heh|hehe)+\b")]
+        private static partial Regex HahaToHehexDM();
+        private static readonly Regex HahaToHehexD = HahaToHehexDM();
+        [GeneratedRegex(@"\b([Tt])he\b")]
+        private static partial Regex TheToTehM();
+        private static readonly Regex TheToTeh = TheToTehM();
+        [GeneratedRegex(@"\bYou\b")]
+        private static partial Regex YouToUUpperM();
+        private static readonly Regex YouToUUpper = YouToUUpperM();
+        [GeneratedRegex(@"\byou\b")]
+        private static partial Regex YouToULowerM();
+        private static readonly Regex YouToULower = YouToULowerM();
+        [GeneratedRegex(@"\b([Tt])ime\b")]
+        private static partial Regex TimeToTimM();
+        private static readonly Regex TimeToTim = TimeToTimM();
+        [GeneratedRegex(@"([Oo])ver")]
+        private static partial Regex OverToOworM();
+        private static readonly Regex OverToOwor = OverToOworM();
+        [GeneratedRegex(@"([Ww])orse")]
+        private static partial Regex WorseToWoseM();
+        private static readonly Regex WorseToWose = WorseToWoseM();
+#else
         private static readonly Regex OToOwO = new Regex(@"o");
         private static readonly Regex EwToUwU = new Regex(@"ew");
         private static readonly Regex HeyToHay = new Regex(@"([Hh])ey");
@@ -73,6 +255,7 @@ namespace Owoify
         private static readonly Regex TimeToTim = new Regex(@"\b([Tt])ime\b");
         private static readonly Regex OverToOwor = new Regex(@"([Oo])ver");
         private static readonly Regex WorseToWose = new Regex(@"([Ww])orse");
+#endif
 
         private static Word MapOToOwO(Word input)
             => input.Replace(OToOwO, 

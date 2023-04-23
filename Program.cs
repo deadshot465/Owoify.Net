@@ -4,12 +4,24 @@ using System.Text.RegularExpressions;
 
 namespace Owoify
 {
-    public static class Owoifier
+    public static partial class Owoifier
     {
         public enum OwoifyLevel
         {
             Owo, Uwu, Uvu
         }
+
+#if NET7_0_OR_GREATER
+        [GeneratedRegex(@"[^\s]+")]
+        private static partial Regex WordRegexM();
+        private static readonly Regex WordRegex = WordRegexM();
+        [GeneratedRegex(@"\s+")]
+        private static partial Regex SpaceRegexM();
+        private static readonly Regex SpaceRegex = SpaceRegexM();
+#else
+        private static readonly Regex WordRegex = new Regex(@"[^\s]+");
+        private static readonly Regex SpaceRegex = new Regex(@"\s+");
+#endif
 
         /// <summary>
         /// Owoify the given source string using specified owoness level.
@@ -20,11 +32,8 @@ namespace Owoify
         /// <exception cref="ArgumentException">When the specified owoness level is invalid.</exception>
         public static string Owoify(string value, OwoifyLevel level = OwoifyLevel.Owo)
         {
-            var wordRegex = new Regex(@"[^\s]+");
-            var wordMatches = wordRegex.Matches(value);
-
-            var spaceRegex = new Regex(@"\s+");
-            var spaceMatches = spaceRegex.Matches(value);
+            var wordMatches = WordRegex.Matches(value);
+            var spaceMatches = SpaceRegex.Matches(value);
 
             var words = wordMatches
                 .Select(match => new Word(match.Value));
@@ -34,21 +43,21 @@ namespace Owoify
 
             words = words.Select(word =>
             {
-                word = Utility.SpecificWordMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                foreach (var func in Utility.SpecificWordMappingList) word = func.Invoke(word);
 
                 switch (level)
                 {
                     case OwoifyLevel.Owo:
-                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        foreach (var func in Utility.OwoMappingList) word = func.Invoke(word);
                         break;
                     case OwoifyLevel.Uwu:
-                        word = Utility.UwuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
-                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        foreach (var func in Utility.UwuMappingList) word = func.Invoke(word);
+                        foreach (var func in Utility.OwoMappingList) word = func.Invoke(word);
                         break;
                     case OwoifyLevel.Uvu:
-                        word = Utility.UvuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
-                        word = Utility.UwuMappingList.Aggregate(word, (current, func) => func.Invoke(current));
-                        word = Utility.OwoMappingList.Aggregate(word, (current, func) => func.Invoke(current));
+                        foreach (var func in Utility.UvuMappingList) word = func.Invoke(word);
+                        foreach (var func in Utility.UwuMappingList) word = func.Invoke(word);
+                        foreach (var func in Utility.OwoMappingList) word = func.Invoke(word);
                         break;
                     default:
                         throw new ArgumentException("Invalid owoness level.", nameof(level));

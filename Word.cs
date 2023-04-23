@@ -24,22 +24,26 @@ namespace Owoify
                 SearchValueContainsReplacedWords(searchValue, replaceValue, _replacedWords))
                 return this;
 
-            var replacingWord = _word;
+            string replacingWord;
             if (searchValue.IsMatch(_word))
-                replacingWord = Regex.Replace(_word, searchValue.ToString(), replaceValue);
-
+                replacingWord = searchValue.Replace(_word, replaceValue);
+            else return this;
+#if NET7_0_OR_GREATER
+            var enumerator = searchValue.EnumerateMatches(_word);
+            while (enumerator.MoveNext())
+            {
+                _replacedWords.Add(replaceValue);
+            }
+#else
             var matchCollection = searchValue.Matches(_word);
             var replacedWords = (matchCollection.Count > 0) ?
-                matchCollection
-                .Select(x => x.Value.Replace(x.Value, replaceValue))
-                .ToList() : new List<string>();
-
-            if (replacingWord == _word) return this;
-            
+                matchCollection.Select(x => x.Value)
+                : Array.Empty<string>();
             foreach (var word in replacedWords)
             {
                 _replacedWords.Add(word);
             }
+#endif
             _word = replacingWord;
             return this;
         }
@@ -59,11 +63,19 @@ namespace Owoify
                 replacingWord = _word.Replace(match, replaceValue).Trim();
             }
 
+#if NET7_0_OR_GREATER
+            var enumerator = searchValue.EnumerateMatches(_word);
+            var replacedWords = new List<string>();
+            while (enumerator.MoveNext())
+            {
+                replacedWords.Add(replaceValue);
+            }
+#else
             var matchCollection = searchValue.Matches(_word);
             var replacedWords = (matchCollection.Count > 0) ?
-                matchCollection
-                .Select(x => x.Value.Replace(x.Value, replaceValue))
-                .ToList() : new List<string>();
+                matchCollection.Select(x => x.Value)
+                : Array.Empty<string>();
+#endif
 
             if (replacingWord != _word)
             {
@@ -88,19 +100,25 @@ namespace Owoify
                 return this;
             
             var replacingWord = _word.Replace(match.Value, replaceValue).Trim();
+            if (replacingWord == _word) return this;
 
+#if NET7_0_OR_GREATER
+            var enumerator = searchValue.EnumerateMatches(_word);
+            while (enumerator.MoveNext())
+            {
+                _replacedWords.Add(replaceValue);
+            }
+#else
             var matchCollection = searchValue.Matches(_word);
             var replacedWords = (matchCollection.Count > 0) ?
-                matchCollection
-                .Select(x => x.Value.Replace(x.Value, replaceValue))
-                .ToList() : new List<string>();
-
-            if (replacingWord == _word) return this;
-            
+                matchCollection.Select(x => x.Value)
+                : Array.Empty<string>();
             foreach (var word in replacedWords)
             {
                 _replacedWords.Add(word);
             }
+#endif
+
             _word = replacingWord;
             return this;
         }
@@ -108,13 +126,14 @@ namespace Owoify
         private static bool SearchValueContainsReplacedWords(Regex searchValue, string replaceValue,
             IEnumerable<string> replacedWords)
         {
-            return replacedWords.Any(word =>
+            foreach (var word in replacedWords)
             {
-                if (!searchValue.IsMatch(word)) return false;
+                if (!searchValue.IsMatch(word)) continue;
                 
                 var match = searchValue.Match(word).Groups[0];
-                return word.Replace(match.Value, replaceValue) == word;
-            });
+                if (word.Replace(match.Value, replaceValue) == word) return true;
+            }
+            return false;
         }
     }
 }

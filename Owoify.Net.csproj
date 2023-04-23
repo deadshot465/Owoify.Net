@@ -12,7 +12,7 @@
     <PackageTags>C#, .NET, .NET Core, owoify, fun, funny, nonsensical, nonsense, curse, cursed, baby, babyspeak</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Version>1.2.0</Version>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>net7.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageVersion>1.2.0</PackageVersion>
     <Title>Owoify.Net</Title>
