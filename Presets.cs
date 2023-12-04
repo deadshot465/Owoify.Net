@@ -8,8 +8,11 @@ namespace Owoify
         internal static IEnumerable<Func<Word, Word>> SpecificWordMappingList => new List<Func<Word, Word>>
             {
                 MapFucToFwuc, MapMomToMwom, MapTimeToTim, MapMeToMwe,
-                MapNVowelToNy, MapOverToOwor, MapOveToUv, MapHahaToHehexD,
-                MapTheToTeh, MapYouToU, MapReadToWead, MapWorseToWose
+                MapOverToOwor, MapOveToUv, MapHahaToHehexD,
+                MapTheToTeh, MapYouToU, MapReadToWead, MapWorseToWose,
+                MapGreatToGwate, MapAviatToAwiat, MapDedicatToDeditat,
+                MapRememberToRember, MapWhenToWen, MapFrightenedToFrigten,
+                MapMemeToMem, MapFeelToFell
             };
 
         internal static IEnumerable<Func<Word, Word>> UvuMappingList => new List<Func<Word, Word>>
@@ -27,12 +30,13 @@ namespace Owoify
 
         internal static IEnumerable<Func<Word, Word>> OwoMappingList => new List<Func<Word, Word>>
             {
-                MapLlToWw, MapVowelOrRExceptOlToWl, MapOldToOwld,
+                MapNVowelToNy, MapLlToWw, MapVowelOrRExceptOlToWl, MapOldToOwld,
                 MapOlToOwl, MapLOrRoToWo, MapSpecificConsonantsOToLetterAndWo,
                 MapVOrWLeToWal, MapFiToFwi, MapVerToWer, MapPoiToPwoi,
                 MapSpecificConsonantsLeToLetterAndWal,
                 MapConsonantRToConsonantW,
-                MapLyToWy, MapPleToPwe, MapNrToNw
+                MapLyToWy, MapPleToPwe, MapNrToNw,
+                MapMemToMwem, UnmapNywoToNyo
             };
     }
 }

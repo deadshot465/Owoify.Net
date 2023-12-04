@@ -18,7 +18,7 @@ Please refer to the original [owoify-js repository](https://github.com/mohan-cao
 Install via [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) or Visual Studio's built-in NuGet package manager. Alternatively, run the following command in the root directory of your project:
 
 ```bash
-dotnet add package Owoify.Net --version 1.1.0
+dotnet add package Owoify.Net --version 1.3.0
 ```
 
 ## Usage
@@ -38,5 +38,5 @@ Console.WriteLine(Owoifier.Owoify("This is the string to owo! Kinda cute isn't i
 ```
 
 ## Changelog
-- v1.1.0 - Refactored and made all mapping regular expressions static readonly fields.
+- v1.3.0 - Add more mappings so it's on par with mohan-cao's latest owoify. **Note that this version changed some mappings in presets; therefore, the same input probably won't return the same result as previous versions.**
 

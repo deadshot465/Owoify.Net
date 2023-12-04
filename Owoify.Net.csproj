@@ -4,8 +4,9 @@
     <RootNamespace>Owoify</RootNamespace>
     <Authors>Chehui Chou (Tetsuki Syu)</Authors>
     <Description>This C# port of mohan-cao's owoify-js is released under MIT license, which is also the same license of owoify-js. This simple library will turn any string into nonsensical babyspeak similar to what LeafySweet's infamous Chrome extension did.</Description>
-    <Copyright>Copyright (c) 2022 Chehui Chou</Copyright>
+    <Copyright>Copyright (c) 2023 Chehui Chou</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/deadshot465/Owoify.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/deadshot465/Owoify.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -14,9 +15,9 @@
     <Version>1.2.0</Version>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.2.0</PackageVersion>
+    <PackageVersion>1.3.0</PackageVersion>
     <Title>Owoify.Net</Title>
-    <PackageReleaseNotes>v1.2.0 - Throw an exception when the passed owoness level is invalid. Improve documentation.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.3.0 - Add more mappings, so it's on par with mohan-cao's latest owoify.</PackageReleaseNotes>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <Nullable>enable</Nullable>
@@ -26,6 +27,7 @@
     <None Remove="Owoify.NetTest\**" />
     <None Remove="OwoifyNetTest\**" />
     <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

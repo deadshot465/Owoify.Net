@@ -8,23 +8,25 @@ namespace Owoify
     {
         public enum OwoifyLevel
         {
-            Owo, Uwu, Uvu
+            Owo,
+            Uwu,
+            Uvu
         }
 
         /// <summary>
         /// Owoify the given source string using specified owoness level.
         /// </summary>
-        /// <param name="value">The source string to owoify.</param>
+        /// <param name="source">The source string to owoify.</param>
         /// <param name="level">The owoness level. Three levels are available (from lowest to highest): Owo, Uwu, Uvu</param>
-        /// <returns></returns>
+        /// <returns>The owoified string.</returns>
         /// <exception cref="ArgumentException">When the specified owoness level is invalid.</exception>
-        public static string Owoify(string value, OwoifyLevel level = OwoifyLevel.Owo)
+        public static string Owoify(string source, OwoifyLevel level = OwoifyLevel.Owo)
         {
             var wordRegex = new Regex(@"[^\s]+");
-            var wordMatches = wordRegex.Matches(value);
+            var wordMatches = wordRegex.Matches(source);
 
             var spaceRegex = new Regex(@"\s+");
-            var spaceMatches = spaceRegex.Matches(value);
+            var spaceMatches = spaceRegex.Matches(source);
 
             var words = wordMatches
                 .Select(match => new Word(match.Value));
@@ -60,5 +62,19 @@ namespace Owoify
             var result = Utility.InterleaveArrays(words, spaces);
             return string.Join(string.Empty, result);
         }
+
+        /// <summary>
+        /// Owoify the given source string using Uwu owoness level.
+        /// </summary>
+        /// <param name="source">The source string to owoify.</param>
+        /// <returns>The owoified string.</returns>
+        public static string Uwuify(string source) => Owoify(source, OwoifyLevel.Uwu);
+
+        /// <summary>
+        /// Owoify the given source string using Uvu owoness level.
+        /// </summary>
+        /// <param name="source">The source string to owoify.</param>
+        /// <returns>The owoified string.</returns>
+        public static string Uvuify(string source) => Owoify(source, OwoifyLevel.Uvu);
     }
 }
